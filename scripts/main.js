@@ -81,9 +81,10 @@ function handleSliderChange(e) {
 
 function handleCopyClick(e) {
   e.preventDefault();
-  navigator.clipboard.writeText(passwordValue.value);
-
-  passwordCopiedText.textContent = "copied";
+  if (passwordValue.value !== "") {
+    navigator.clipboard.writeText(passwordValue.value);
+    passwordCopiedText.textContent = "copied";
+  }
 }
 
 formSettings.addEventListener("submit", handleSubmit);
