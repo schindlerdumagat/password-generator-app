@@ -61,11 +61,16 @@ function handleSubmit(e) {
 
   try {
     const password = generatePassword(charLength, hasUpper, hasLower, hasNumber, hasSymbol);
-    console.log(password);
     const passwordStrength =  evaluateStrength(password);
+
     passwordValue.value = password;
     passwordResultMeter.className = `options__strength-bars options__strength-bars--${passwordStrength}`;
     passwordResult.textContent = passwordStrength.replaceAll("-", " ");
+
+    if (passwordResult.textContent === "too weak") {
+      passwordResult.textContent += "!";
+    }
+
     errorMessage.textContent = "";
     passwordCopiedText.textContent = "";
   } catch (e) {
