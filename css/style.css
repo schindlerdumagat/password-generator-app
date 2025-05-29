@@ -251,8 +251,10 @@ body {
   color: inherit;
   font-size: clamp(var(--text-lg), 1.0229rem + 2.0356vw, var(--text-xl));
   width: 100%;
+  margin-inline-end: auto;
   background-color: transparent;
   border: transparent;
+  text-overflow: ellipsis;
 }
 .password__copy-text {
   text-transform: uppercase;
@@ -316,11 +318,11 @@ body {
   display: flex;
   gap: var(--space-100);
 }
-.options__strength-bars--bad > :nth-child(-n+1) {
+.options__strength-bars--too-weak > :nth-child(-n+1) {
   border-color: var(--clr-red);
   background-color: var(--clr-red);
 }
-.options__strength-bars--good > :nth-child(-n+2) {
+.options__strength-bars--weak > :nth-child(-n+2) {
   border-color: var(--clr-orange);
   background-color: var(--clr-orange);
 }
@@ -328,7 +330,7 @@ body {
   border-color: var(--clr-yellow);
   background-color: var(--clr-yellow);
 }
-.options__strength-bars--best > :nth-child(-n+4) {
+.options__strength-bars--strong > :nth-child(-n+4) {
   border-color: var(--clr-green);
   background-color: var(--clr-green);
 }
@@ -359,6 +361,13 @@ body {
 }
 .options__generate-btn:hover path {
   fill: var(--clr-green);
+}
+
+.error-message {
+  display: block;
+  font: inherit;
+  color: var(--clr-red);
+  margin-block-end: var(--space-200);
 }
 
 /*# sourceMappingURL=style.css.map */

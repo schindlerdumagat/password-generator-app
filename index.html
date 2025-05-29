@@ -25,17 +25,18 @@
     <main>
       <section class="generator">
         <h1 class="generator__title">Password Generator</h1>
-        <form>
+        <form id="form-settings">
           <div class="password">
             <input
+              id="password-value"
               class="password__value"
               type="text"
               value="PTx1f5DaFX"
               placeholder="P4$5W0rD!"
               readonly
             />
-            <p class="password__copy-text">copied</p>
-            <button class="password__copy-btn" aria-label="copy password">
+            <p id="password-copied-text" class="password__copy-text"></p>
+            <button id="copy-btn" class="password__copy-btn" aria-label="copy password">
               <svg
                 class="password__copy-img"
                 width="21"
@@ -52,42 +53,44 @@
             <div class="options__slider">
               <div class="options__slider-header">
                 <label for="options__label">Character Length</label>
-                <p class="options__slider-value">10</p>
+                <p id="slider-value" class="options__slider-value">15</p>
               </div>
               <input
+                id="char-length-slider"
                 class="options__slider-field"
-                id="char-length"
                 type="range"
-                value="10"
-                min="0"
+                name="charLength"
+                value="12"
+                min="5"
                 max="20"
               />
             </div>
+            <span class="error-message"></span>
             <ul class="options__checklist" role="list">
               <li class="options__checkbox-item">
                 <label class="options__checkbox">
-                  <input type="checkbox" />
+                  <input type="checkbox" name="hasUpper" />
                   <span class="checkbox-box"></span>
                   <span class="checkbox-label">Include Uppercase Letter</span>
                 </label>
               </li>
               <li class="options__checkbox-item">
                 <label class="options__checkbox">
-                  <input type="checkbox" />
+                  <input type="checkbox" name="hasLower" />
                   <span class="checkbox-box"></span>
                   <span class="checkbox-label">Include Lowercase Letter</span>
                 </label>
               </li>
               <li class="options__checkbox-item">
                 <label class="options__checkbox">
-                  <input type="checkbox" />
+                  <input type="checkbox" name="hasNumber" />
                   <span class="checkbox-box"></span>
                   <span class="checkbox-label">Include Numbers</span>
                 </label>
               </li>
               <li class="options__checkbox-item">
                 <label class="options__checkbox">
-                  <input type="checkbox" />
+                  <input type="checkbox" name="hasSymbol" />
                   <span class="checkbox-box"></span>
                   <span class="checkbox-label">Include Symbols</span>
                 </label>
@@ -95,9 +98,10 @@
             </ul>
             <div class="options__strength">
               <p class="options__strength-text">strength</p>
-              <p class="options__strength-level">medium</p>
+              <p id="password-result" class="options__strength-level"></p>
               <div
-                class="options__strength-bars options__strength-bars--medium"
+                id="password-result-meter"
+                class="options__strength-bars"
               >
                 <div class="options__strength-bar"></div>
                 <div class="options__strength-bar"></div>
@@ -105,7 +109,7 @@
                 <div class="options__strength-bar"></div>
               </div>
             </div>
-            <button class="options__generate-btn">
+            <button id="generate-btn" type="submit" class="options__generate-btn">
               Generate
               <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg">
                 <path

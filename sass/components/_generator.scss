@@ -37,8 +37,10 @@
     color: inherit;
     font-size: clamp(var(--text-lg), 1.0229rem + 2.0356vw, var(--text-xl));
     width: 100%;
+    margin-inline-end: auto;
     background-color: transparent;
     border: transparent;
+    text-overflow: ellipsis;
   }
 
   &__copy-text {
@@ -142,12 +144,12 @@
       display: flex;
       gap: var(--space-100);
 
-      &--bad > :nth-child(-n + 1) {
+      &--too-weak > :nth-child(-n + 1) {
         border-color: var(--clr-red);
         background-color: var(--clr-red);
       }
 
-      &--good > :nth-child(-n + 2) {
+      &--weak > :nth-child(-n + 2) {
         border-color: var(--clr-orange);
         background-color: var(--clr-orange);
       }
@@ -157,7 +159,7 @@
         background-color: var(--clr-yellow);
       }
 
-      &--best > :nth-child(-n + 4) {
+      &--strong > :nth-child(-n + 4) {
         border-color: var(--clr-green);
         background-color: var(--clr-green);
       }
@@ -196,4 +198,11 @@
       }
     }
   }
+}
+
+.error-message {
+  display: block;
+  font: inherit;
+  color: var(--clr-red);
+  margin-block-end: var(--space-200);
 }
