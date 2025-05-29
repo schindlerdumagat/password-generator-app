@@ -220,7 +220,7 @@ body {
   left: 1px;
   width: 16px;
   height: 16px;
-  background: url("../../assets/images/icon-check.svg") no-repeat center center;
+  background: url("../assets/images/icon-check.svg") no-repeat center center;
   background-size: contain;
 }
 .custom-checkbox .checkbox-label, .options__checkbox .checkbox-label {
