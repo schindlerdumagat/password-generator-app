@@ -77,7 +77,6 @@ function handleSubmit(e) {
     errorMessage.textContent = e.message;
     console.error(e);
   }
-
 }
 
 function handleSliderChange(e) {
@@ -86,6 +85,8 @@ function handleSliderChange(e) {
 
 function handleCopyClick(e) {
   e.preventDefault();
+
+  // Only copy when password has been generated
   if (passwordValue.value !== "") {
     navigator.clipboard.writeText(passwordValue.value);
     passwordCopiedText.textContent = "copied";
