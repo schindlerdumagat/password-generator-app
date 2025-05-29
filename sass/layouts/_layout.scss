@@ -1,0 +1,7 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--clr-background);
+    padding: var(--space-200);
+}

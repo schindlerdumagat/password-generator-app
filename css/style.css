@@ -1,0 +1,364 @@
+:root {
+  --clr-white: #FFFFFF;
+  --clr-black: #000000;
+  --clr-grey-950: #08070B;
+  --clr-grey-900: #14131B;
+  --clr-grey-850: #18171F;
+  --clr-grey-800: #24232C;
+  --clr-grey-700: #54535B;
+  --clr-grey-600: #817D92;
+  --clr-grey-200: #E6E5EA;
+  --clr-green: #A4FFAF;
+  --clr-yellow: #F8CD65;
+  --clr-orange: #FB7C58;
+  --clr-red: #F64A4A;
+  --clr-background: linear-gradient(to right, #14131B, #08070B);
+  --font-mono: "JetBrains Mono", monospace;
+  --text-sm: 1rem;
+  --text-md: 1.125rem;
+  --text-lg: 1.5rem;
+  --text-xl: 2rem;
+  --space-100: 0.5rem;
+  --space-200: 1rem;
+  --space-300: 1.5rem;
+  --space-400: 2rem;
+  --space-700: 3.5rem;
+  --space-1000: 5rem;
+  --space-1300: 6.5rem;
+  --space-1600: 8rem;
+  --space-2000: 10rem;
+  --space-2200: 11rem;
+  --space-2300: 11.5rem;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+body {
+  font-family: var(--font-mono);
+  font-size: clamp(var(--text-sm), 0.8807rem + 0.5089vw, var(--text-md));
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--clr-grey-200);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--clr-background);
+  padding: var(--space-200);
+}
+
+.custom-range, .options__slider-field {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(to right, var(--clr-green) 50%, var(--clr-grey-850) 50%);
+  outline: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* Track - Chrome */
+.custom-range::-webkit-slider-runnable-track, .options__slider-field::-webkit-slider-runnable-track {
+  height: 8px;
+  background: transparent;
+  border-radius: 4px;
+}
+
+/* Thumb - Chrome */
+.custom-range::-webkit-slider-thumb, .options__slider-field::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid transparent;
+  transition: background 0.3s, border-color 0.3s;
+  margin-top: -6px; /* Center thumb */
+}
+
+.custom-range:hover::-webkit-slider-thumb, .options__slider-field:hover::-webkit-slider-thumb {
+  background: var(--clr-grey-850);
+  border-color: var(--clr-green);
+}
+
+/* Track - Firefox */
+.custom-range::-moz-range-track, .options__slider-field::-moz-range-track {
+  height: 8px;
+  background: var(--clr-grey-850);
+  border-radius: 4px;
+}
+
+/* Progress (left side) - Firefox */
+.custom-range::-moz-range-progress, .options__slider-field::-moz-range-progress {
+  height: 8px;
+  background: var(--clr-green);
+  border-radius: 4px;
+}
+
+/* Thumb - Firefox */
+.custom-range::-moz-range-thumb, .options__slider-field::-moz-range-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid transparent;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.custom-range:hover::-moz-range-thumb, .options__slider-field:hover::-moz-range-thumb {
+  background: var(--clr-grey-850);
+  border-color: var(--clr-green);
+}
+
+.custom-checkbox, .options__checkbox {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+.custom-checkbox input[type=checkbox], .options__checkbox input[type=checkbox] {
+  display: none;
+}
+.custom-checkbox .checkbox-box, .options__checkbox .checkbox-box {
+  width: 20px;
+  height: 20px;
+  border: 2px solid white;
+  background-color: transparent; /* Inherit container bg if needed */
+  display: inline-block;
+  position: relative;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+.custom-checkbox:hover input[type=checkbox]:not(:checked) + .checkbox-box, .options__checkbox:hover input[type=checkbox]:not(:checked) + .checkbox-box {
+  border-color: var(--clr-green);
+}
+.custom-checkbox input[type=checkbox]:checked + .checkbox-box, .options__checkbox input[type=checkbox]:checked + .checkbox-box {
+  background-color: var(--clr-green);
+  border-color: var(--clr-green);
+}
+.custom-checkbox input[type=checkbox]:checked + .checkbox-box::after, .options__checkbox input[type=checkbox]:checked + .checkbox-box::after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 16px;
+  height: 16px;
+  background: url("../../assets/images/icon-check.svg") no-repeat center center;
+  background-size: contain;
+}
+.custom-checkbox .checkbox-label, .options__checkbox .checkbox-label {
+  font: inherit;
+  margin-inline-start: clamp(var(--space-200), 0.5229rem + 2.0356vw, var(--space-300));
+}
+
+.generator {
+  max-width: 33.75em;
+  margin-inline: auto;
+}
+.generator__title {
+  font-size: clamp(var(--text-sm), 0.5229rem + 2.0356vw, var(--text-lg));
+  text-align: center;
+  color: var(--clr-grey-600);
+  margin-block-end: clamp(var(--text-sm), 0.0458rem + 4.0712vw, var(--text-xl));
+}
+
+.password {
+  display: flex;
+  align-items: center;
+  padding-block: var(--space-200);
+  padding-inline: clamp(var(--space-200), 0.0458rem + 4.0712vw, var(--space-400));
+  background-color: var(--clr-grey-800);
+  margin-block-end: clamp(var(--space-200), 0.5229rem + 2.0356vw, var(--space-300));
+}
+.password__value {
+  color: inherit;
+  font-size: clamp(var(--text-lg), 1.0229rem + 2.0356vw, var(--text-xl));
+  width: 100%;
+  background-color: transparent;
+  border: transparent;
+}
+.password__copy-text {
+  text-transform: uppercase;
+  margin-inline-end: clamp(var(--space-100), 0.0229rem + 2.0356vw, var(--space-200));
+  color: var(--clr-green);
+}
+.password__copy-btn {
+  background-color: transparent;
+  border: transparent;
+  cursor: pointer;
+}
+.password__copy-img path {
+  fill: var(--clr-green);
+}
+.password__copy-img:hover path {
+  fill: var(--clr-white);
+}
+
+.options {
+  background-color: var(--clr-grey-800);
+  padding-block: clamp(var(--space-200), 0.5229rem + 2.0356vw, var(--space-300));
+  padding-inline: clamp(var(--space-200), 0.0458rem + 4.0712vw, var(--space-400));
+}
+.options__slider, .options__checklist {
+  margin-block-end: var(--space-400);
+}
+.options__slider-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block-end: clamp(var(--space-100), 0.0229rem + 2.0356vw, var(--space-200));
+}
+.options__slider-value {
+  font-size: clamp(var(--text-lg), 1.0229rem + 2.0356vw, var(--text-xl));
+  color: var(--clr-green);
+}
+.options__checklist {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-200);
+}
+.options__strength {
+  display: flex;
+  align-items: center;
+  background-color: var(--clr-grey-850);
+  padding-block: var(--space-200);
+  padding-inline: clamp(var(--space-200), 0.0458rem + 4.0712vw, var(--space-400));
+  margin-block-end: clamp(var(--space-200), 0.0458rem + 4.0712vw, var(--space-400));
+}
+.options__strength-text {
+  color: var(--clr-grey-600);
+  text-transform: uppercase;
+  margin-inline-end: auto;
+}
+.options__strength-level {
+  font-size: clamp(var(--text-md), 0.7672rem + 1.5267vw, var(--text-lg));
+  text-transform: uppercase;
+  margin-inline-end: var(--space-200);
+}
+.options__strength-bars {
+  display: flex;
+  gap: var(--space-100);
+}
+.options__strength-bars--bad > :nth-child(-n+1) {
+  border-color: var(--clr-red);
+  background-color: var(--clr-red);
+}
+.options__strength-bars--good > :nth-child(-n+2) {
+  border-color: var(--clr-orange);
+  background-color: var(--clr-orange);
+}
+.options__strength-bars--medium > :nth-child(-n+3) {
+  border-color: var(--clr-yellow);
+  background-color: var(--clr-yellow);
+}
+.options__strength-bars--best > :nth-child(-n+4) {
+  border-color: var(--clr-green);
+  background-color: var(--clr-green);
+}
+.options__strength-bar {
+  height: 28px;
+  width: 10px;
+  border: 2px solid var(--clr-grey-200);
+}
+.options__generate-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(var(--space-200), 0.5229rem + 2.0356vw, var(--space-300));
+  width: 100%;
+  background-color: var(--clr-green);
+  padding-block: clamp(var(--space-200), 0.5229rem + 2.0356vw, var(--space-300));
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 2px solid var(--clr-green);
+}
+.options__generate-btn path {
+  fill: var(--clr-grey-800);
+}
+.options__generate-btn:hover {
+  color: var(--clr-green);
+  background-color: var(--clr-grey-800);
+}
+.options__generate-btn:hover path {
+  fill: var(--clr-green);
+}
+
+/*# sourceMappingURL=style.css.map */

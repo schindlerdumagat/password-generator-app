@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Frontend Mentor | Password generator app</title>
+  </head>
+  <body>
+    <main>
+      <section class="generator">
+        <h1 class="generator__title">Password Generator</h1>
+        <form>
+          <div class="password">
+            <input
+              class="password__value"
+              type="text"
+              value="PTx1f5DaFX"
+              placeholder="P4$5W0rD!"
+              readonly
+            />
+            <p class="password__copy-text">copied</p>
+            <button class="password__copy-btn" aria-label="copy password">
+              <svg
+                class="password__copy-img"
+                width="21"
+                height="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20.341 3.091 17.909.659A2.25 2.25 0 0 0 16.319 0H8.25A2.25 2.25 0 0 0 6 2.25V4.5H2.25A2.25 2.25 0 0 0 0 6.75v15A2.25 2.25 0 0 0 2.25 24h10.5A2.25 2.25 0 0 0 15 21.75V19.5h3.75A2.25 2.25 0 0 0 21 17.25V4.682a2.25 2.25 0 0 0-.659-1.591ZM12.469 21.75H2.53a.281.281 0 0 1-.281-.281V7.03a.281.281 0 0 1 .281-.281H6v10.5a2.25 2.25 0 0 0 2.25 2.25h4.5v1.969a.282.282 0 0 1-.281.281Zm6-4.5H8.53a.281.281 0 0 1-.281-.281V2.53a.281.281 0 0 1 .281-.281H13.5v4.125c0 .621.504 1.125 1.125 1.125h4.125v9.469a.282.282 0 0 1-.281.281Zm.281-12h-3v-3h.451c.075 0 .147.03.2.082L18.667 4.6a.283.283 0 0 1 .082.199v.451Z"
+                />
+              </svg>
+            </button>
+          </div>
+          <div class="options">
+            <div class="options__slider">
+              <div class="options__slider-header">
+                <label for="options__label">Character Length</label>
+                <p class="options__slider-value">10</p>
+              </div>
+              <input
+                class="options__slider-field"
+                id="char-length"
+                type="range"
+                value="10"
+                min="0"
+                max="20"
+              />
+            </div>
+            <ul class="options__checklist" role="list">
+              <li class="options__checkbox-item">
+                <label class="options__checkbox">
+                  <input type="checkbox" />
+                  <span class="checkbox-box"></span>
+                  <span class="checkbox-label">Include Uppercase Letter</span>
+                </label>
+              </li>
+              <li class="options__checkbox-item">
+                <label class="options__checkbox">
+                  <input type="checkbox" />
+                  <span class="checkbox-box"></span>
+                  <span class="checkbox-label">Include Lowercase Letter</span>
+                </label>
+              </li>
+              <li class="options__checkbox-item">
+                <label class="options__checkbox">
+                  <input type="checkbox" />
+                  <span class="checkbox-box"></span>
+                  <span class="checkbox-label">Include Numbers</span>
+                </label>
+              </li>
+              <li class="options__checkbox-item">
+                <label class="options__checkbox">
+                  <input type="checkbox" />
+                  <span class="checkbox-box"></span>
+                  <span class="checkbox-label">Include Symbols</span>
+                </label>
+              </li>
+            </ul>
+            <div class="options__strength">
+              <p class="options__strength-text">strength</p>
+              <p class="options__strength-level">medium</p>
+              <div
+                class="options__strength-bars options__strength-bars--medium"
+              >
+                <div class="options__strength-bar"></div>
+                <div class="options__strength-bar"></div>
+                <div class="options__strength-bar"></div>
+                <div class="options__strength-bar"></div>
+              </div>
+            </div>
+            <button class="options__generate-btn">
+              Generate
+              <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="m5.106 12 6-6-6-6-1.265 1.265 3.841 3.84H.001v1.79h7.681l-3.841 3.84z"
+                />
+              </svg>
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+    <script src="../scripts/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+.custom-checkbox {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+
+  & input[type="checkbox"] {
+    display: none;
+  }
+
+  & .checkbox-box {
+    width: 20px;
+    height: 20px;
+    border: 2px solid white;
+    background-color: transparent; /* Inherit container bg if needed */
+    display: inline-block;
+    position: relative;
+    transition: border-color 0.2s, background-color 0.2s;
+  }
+
+  &:hover input[type="checkbox"]:not(:checked) + .checkbox-box {
+    border-color: var(--clr-green);
+  }
+
+  & input[type="checkbox"]:checked + .checkbox-box {
+    background-color: var(--clr-green);
+    border-color: var(--clr-green);
+  }
+
+  & input[type="checkbox"]:checked + .checkbox-box::after {
+    content: "";
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    width: 16px;
+    height: 16px;
+    background: url("../../assets/images/icon-check.svg") no-repeat center
+      center;
+    background-size: contain;
+  }
+
+  .checkbox-label {
+    font: inherit;
+    margin-inline-start: clamp(
+      var(--space-200),
+      0.5229rem + 2.0356vw,
+      var(--space-300)
+    );
+  }
+}

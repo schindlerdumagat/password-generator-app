@@ -1,0 +1,7 @@
+body {
+    font-family: var(--font-mono);
+    font-size: clamp(var(--text-sm), 0.8807rem + 0.5089vw, var(--text-md));
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--clr-grey-200);
+}

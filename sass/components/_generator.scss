@@ -1,0 +1,199 @@
+@use "slider";
+@use "checkbox";
+
+.generator {
+  max-width: 33.75em;
+  margin-inline: auto;
+
+  &__title {
+    font-size: clamp(var(--text-sm), 0.5229rem + 2.0356vw, var(--text-lg));
+    text-align: center;
+    color: var(--clr-grey-600);
+    margin-block-end: clamp(
+      var(--text-sm),
+      0.0458rem + 4.0712vw,
+      var(--text-xl)
+    );
+  }
+}
+
+.password {
+  display: flex;
+  align-items: center;
+  padding-block: var(--space-200);
+  padding-inline: clamp(
+    var(--space-200),
+    0.0458rem + 4.0712vw,
+    var(--space-400)
+  );
+  background-color: var(--clr-grey-800);
+  margin-block-end: clamp(
+    var(--space-200),
+    0.5229rem + 2.0356vw,
+    var(--space-300)
+  );
+
+  &__value {
+    color: inherit;
+    font-size: clamp(var(--text-lg), 1.0229rem + 2.0356vw, var(--text-xl));
+    width: 100%;
+    background-color: transparent;
+    border: transparent;
+  }
+
+  &__copy-text {
+    text-transform: uppercase;
+    margin-inline-end: clamp(
+      var(--space-100),
+      0.0229rem + 2.0356vw,
+      var(--space-200)
+    );
+    color: var(--clr-green);
+  }
+
+  &__copy-btn {
+    background-color: transparent;
+    border: transparent;
+    cursor: pointer;
+  }
+
+  &__copy-img path {
+    fill: var(--clr-green);
+  }
+
+  &__copy-img:hover path {
+    fill: var(--clr-white);
+  }
+}
+
+.options {
+  background-color: var(--clr-grey-800);
+  padding-block: clamp(
+    var(--space-200),
+    0.5229rem + 2.0356vw,
+    var(--space-300)
+  );
+  padding-inline: clamp(
+    var(--space-200),
+    0.0458rem + 4.0712vw,
+    var(--space-400)
+  );
+
+  &__slider,
+  &__checklist {
+    margin-block-end: var(--space-400);
+  }
+
+  &__slider-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-block-end: clamp(
+      var(--space-100),
+      0.0229rem + 2.0356vw,
+      var(--space-200)
+    );
+  }
+
+  &__slider-value {
+    font-size: clamp(var(--text-lg), 1.0229rem + 2.0356vw, var(--text-xl));
+    color: var(--clr-green);
+  }
+
+  &__slider-field {
+    @extend .custom-range;
+  }
+
+  &__checklist {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-200);
+  }
+
+  &__checkbox {
+    @extend .custom-checkbox;
+  }
+
+  &__strength {
+    display: flex;
+    align-items: center;
+    background-color: var(--clr-grey-850);
+    padding-block: var(--space-200);
+    padding-inline: clamp(var(--space-200), 0.0458rem + 4.0712vw, var(--space-400));
+    margin-block-end: clamp(
+      var(--space-200),
+      0.0458rem + 4.0712vw,
+      var(--space-400)
+    );
+
+    &-text {
+      color: var(--clr-grey-600);
+      text-transform: uppercase;
+      margin-inline-end: auto;
+    }
+
+    &-level {
+      font-size: clamp(var(--text-md), 0.7672rem + 1.5267vw, var(--text-lg));
+      text-transform: uppercase;
+      margin-inline-end: var(--space-200);
+    }
+
+    &-bars {
+      display: flex;
+      gap: var(--space-100);
+
+      &--bad > :nth-child(-n + 1) {
+        border-color: var(--clr-red);
+        background-color: var(--clr-red);
+      }
+
+      &--good > :nth-child(-n + 2) {
+        border-color: var(--clr-orange);
+        background-color: var(--clr-orange);
+      }
+
+      &--medium > :nth-child(-n + 3) {
+        border-color: var(--clr-yellow);
+        background-color: var(--clr-yellow);
+      }
+
+      &--best > :nth-child(-n + 4) {
+        border-color: var(--clr-green);
+        background-color: var(--clr-green);
+      }
+    }
+
+    &-bar {
+      height: 28px;
+      width: 10px;
+      border: 2px solid var(--clr-grey-200);
+    }
+  }
+
+  &__generate-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(var(--space-200), 0.5229rem + 2.0356vw, var(--space-300));
+    width: 100%;
+    background-color: var(--clr-green);
+    padding-block: clamp(var(--space-200), 0.5229rem + 2.0356vw, var(--space-300));
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: 2px solid var(--clr-green);
+
+    & path {
+      fill: var(--clr-grey-800);
+    }
+    
+    &:hover {
+      color: var(--clr-green);
+      background-color: var(--clr-grey-800);
+
+      & path {
+        fill: var(--clr-green);
+      }
+    }
+  }
+}
