@@ -8,6 +8,7 @@ const passwordResultMeter = document.querySelector("#password-result-meter");
 const passwordValue = document.querySelector("#password-value");
 const passwordCopiedText = document.querySelector("#password-copied-text");
 const copyBtn = document.querySelector("#copy-btn");
+const rootElement = document.documentElement;
 
 function generatePassword(length, useLower, useUpper, useDigits, useSpecial) {
     let charSets = "";
@@ -51,7 +52,7 @@ function updateRangeBackground() {
   const max = parseInt(range.max);
   const val = parseInt(range.value);
   const percent = ((val - min) / (max - min)) * 100;
-  range.style.background = `linear-gradient(to right, #A4FFAF ${percent}%, #18171F ${percent}%)`;
+  rootElement.style.setProperty("--slider-stop", `${percent}%`);
 }
 
 function handleSubmit(e) {
@@ -60,7 +61,7 @@ function handleSubmit(e) {
   const { charLength, hasUpper, hasLower, hasNumber, hasSymbol } = Object.fromEntries(formData.entries());
 
   try {
-    const password = generatePassword(charLength, hasUpper, hasLower, hasNumber, hasSymbol);
+    const password = generatePassword(charLength, hasLower, hasUpper, hasNumber, hasSymbol);
     const passwordStrength =  evaluateStrength(password);
 
     passwordValue.value = password;
