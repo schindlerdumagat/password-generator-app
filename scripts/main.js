@@ -1,6 +1,5 @@
 const range = document.querySelector(".options__slider-field");
 const formSettings = document.querySelector("#form-settings");
-const charLenSlider = document.querySelector("#char-length-slider");
 const sliderValue = document.querySelector("#slider-value");
 const errorMessage = document.querySelector(".error-message");
 const passwordResult = document.querySelector("#password-result");
@@ -81,6 +80,7 @@ function handleSubmit(e) {
 
 function handleSliderChange(e) {
   sliderValue.textContent = e.target.value;
+  updateRangeBackground();
 }
 
 function handleCopyClick(e) {
@@ -94,8 +94,7 @@ function handleCopyClick(e) {
 }
 
 formSettings.addEventListener("submit", handleSubmit);
-charLenSlider.addEventListener("input", handleSliderChange);
-range.addEventListener("input", updateRangeBackground);
+range.addEventListener("input", handleSliderChange);
 copyBtn.addEventListener("click", handleCopyClick);
 
 updateRangeBackground(); // initialize on page load
