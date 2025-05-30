@@ -8,7 +8,6 @@ const passwordResultMeter = document.querySelector("#password-result-meter");
 const passwordValue = document.querySelector("#password-value");
 const passwordCopiedText = document.querySelector("#password-copied-text");
 const copyBtn = document.querySelector("#copy-btn");
-const rootElement = document.documentElement;
 
 function generatePassword(length, useLower, useUpper, useDigits, useSpecial) {
     let charSets = "";
@@ -52,7 +51,7 @@ function updateRangeBackground() {
   const max = parseInt(range.max);
   const val = parseInt(range.value);
   const percent = ((val - min) / (max - min)) * 100;
-  rootElement.style.setProperty("--slider-stop", `${percent}%`);
+  range.style.setProperty("--slider-stop", `${percent}%`);
 }
 
 function handleSubmit(e) {
