@@ -35,7 +35,11 @@
               readonly
             />
             <p id="password-copied-text" class="password__copy-text"></p>
-            <button id="copy-btn" class="password__copy-btn" aria-label="copy password">
+            <button
+              id="copy-btn"
+              class="password__copy-btn"
+              aria-label="copy password"
+            >
               <svg
                 class="password__copy-img"
                 width="21"
@@ -51,7 +55,9 @@
           <div class="options">
             <div class="options__slider">
               <div class="options__slider-header">
-                <label for="options__label">Character Length</label>
+                <label for="char-length-slider" class="options__label"
+                  >Character Length</label
+                >
                 <p id="slider-value" class="options__slider-value">15</p>
               </div>
               <input
@@ -98,17 +104,18 @@
             <div class="options__strength">
               <p class="options__strength-text">strength</p>
               <p id="password-result" class="options__strength-level"></p>
-              <div
-                id="password-result-meter"
-                class="options__strength-bars"
-              >
+              <div id="password-result-meter" class="options__strength-bars">
                 <div class="options__strength-bar"></div>
                 <div class="options__strength-bar"></div>
                 <div class="options__strength-bar"></div>
                 <div class="options__strength-bar"></div>
               </div>
             </div>
-            <button id="generate-btn" type="submit" class="options__generate-btn">
+            <button
+              id="generate-btn"
+              type="submit"
+              class="options__generate-btn"
+            >
               Generate
               <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg">
                 <path
