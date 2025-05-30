@@ -128,7 +128,7 @@ body {
   width: 100%;
   height: 8px;
   border-radius: 4px;
-  background: linear-gradient(to right, var(--clr-green) 50%, var(--clr-grey-850) 50%);
+  background: linear-gradient(to right, var(--clr-green) var(--slider-stop), var(--clr-grey-850) var(--slider-stop));
   outline: none;
   cursor: pointer;
   transition: background 0.3s ease;
@@ -289,6 +289,9 @@ body {
 .options__slider-value {
   font-size: clamp(var(--text-lg), 1.0229rem + 2.0356vw, var(--text-xl));
   color: var(--clr-green);
+}
+.options__slider-field {
+  background: "linear-gradient(to right, var(--clr-green) var(--slider-stop), var(--clr-grey-850) var(--slider-stop))";
 }
 .options__checklist {
   display: flex;

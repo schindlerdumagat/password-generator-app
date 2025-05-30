@@ -6,8 +6,8 @@
   border-radius: 4px;
   background: linear-gradient(
     to right,
-    var(--clr-green) 50%,
-    var(--clr-grey-850) 50%
+    var(--clr-green) var(--slider-stop),
+    var(--clr-grey-850) var(--slider-stop)
   );
   outline: none;
   cursor: pointer;

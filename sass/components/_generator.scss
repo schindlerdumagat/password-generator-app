@@ -104,6 +104,7 @@
 
   &__slider-field {
     @extend .custom-range;
+    background: "linear-gradient(to right, var(--clr-green) var(--slider-stop), var(--clr-grey-850) var(--slider-stop))";
   }
 
   &__checklist {
